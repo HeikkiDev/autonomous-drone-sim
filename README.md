@@ -58,6 +58,9 @@ gnuplot data/results/phase4_plot.gnuplot
 
 Disable tests with `-DDRONE_SIM_BUILD_TESTS=OFF`.
 
+To compare phases, overlay their CSVs in a single gnuplot `plot` command; each phase also
+prints its own error metrics on exit.
+
 ## Phases
 
 | Phase | Executable | Success criterion |
