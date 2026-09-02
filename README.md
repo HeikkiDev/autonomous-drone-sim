@@ -1,10 +1,32 @@
 # autonomous-drone-sim
 
-2D autonomous drone simulator: state estimation and control learned from first principles
-using a Kalman filter. Built in 8 incremental phases, each with its own executable.
+> **A personal learning project.** This is not a library, product, or anything you should
+> depend on. It exists so I can learn state estimation and control by building a 2D
+> autonomous drone simulator from first principles — writing the Kalman filter, sensor
+> model and control law myself rather than calling into an existing robotics stack.
 
-**This repository is currently a scaffold** — headers declare the interfaces, `.cpp` files
-contain `TODO(phaseN)` notes describing what to implement. No algorithm code is written yet.
+2D autonomous drone simulator built in 8 incremental phases, each with its own executable,
+so every concept can be run and plotted in isolation before the next one is layered on.
+
+**The repository is currently a scaffold, and deliberately so** — headers declare the
+interfaces, `.cpp` files contain only `TODO(phaseN)` notes describing what to implement.
+No algorithm code is written yet: filling it in *is* the exercise. Please don't send PRs
+that implement the phases; that would defeat the purpose.
+
+## Learning goals
+
+- Understand the Kalman filter by deriving and coding `predict`/`update` rather than
+  treating it as a black box.
+- Feel the difference between ground truth, a noisy measurement and an estimate — and why
+  a controller must never secretly use the first one.
+- See what happens when sensing degrades (phase 5) and why prediction beats reaction
+  (phase 8).
+- Practise incremental C++ project structure: small classes, unit tests, reproducible runs.
+
+Design choices favour clarity over performance or generality throughout. Where a decision
+was between "practical" and "instructive", instructive usually won — except for the
+linear algebra, where Eigen is used so the focus stays on the filter rather than on
+reimplementing matrix inversion.
 
 ## Design decisions
 
@@ -60,3 +82,12 @@ Disable tests with `cmake -B build -DDRONE_SIM_BUILD_TESTS=OFF`.
 
 Design → stub → implement → unit test → visualize → tune → document → freeze.
 Later phases add to the pipeline; they should not rewrite earlier code.
+
+Each phase is only "done" when its plot looks right *and* I can explain why. Tuning
+constants until something looks plausible without understanding the mechanism counts as
+not done.
+
+## Status
+
+Scaffold complete; phase 1 not started. Tests exist as named placeholders that skip until
+the corresponding phase is implemented.
