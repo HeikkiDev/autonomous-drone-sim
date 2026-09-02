@@ -42,7 +42,7 @@ src/sensors/      NoiseModel (Gaussian), VirtualSensor (noise + loss windows)
 src/estimation/   KalmanFilter (Eigen-based)
 src/control/      Controller (PD law), Trajectory (lead prediction)
 visualization/    DataLogger (CSV), Plotter (gnuplot scripts)
-examples/         phase1..phase8 entry points
+phases/           phase1..phase8 entry points (one main() each)
 tests/            GoogleTest suites (skipped placeholders)
 data/results/     Generated CSVs and plots (gitignored)
 ```
