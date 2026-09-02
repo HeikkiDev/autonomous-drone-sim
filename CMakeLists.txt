@@ -71,7 +71,7 @@ set(PHASE_TARGETS
 )
 
 foreach(phase ${PHASE_TARGETS})
-    add_executable(${phase} examples/${phase}.cpp)
+    add_executable(${phase} phases/${phase}.cpp)
     target_link_libraries(${phase} PRIVATE drone_sim)
 endforeach()
 
