@@ -1,0 +1,11 @@
+build/
+cmake-build-*/
+compile_commands.json
+.cache/
+
+# Generated simulation output
+data/results/*.csv
+data/results/*.png
+data/results/*.gnuplot
+
+.DS_Store
